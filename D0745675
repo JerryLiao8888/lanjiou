@@ -1,0 +1,115 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define WHO_LEN 15
+#define WHAT_LEN 20
+#define WHEN_LEN 10
+#define WHERE_LEN 20
+#define MAX_REC 10
+typedef struct {
+ char who[WHO_LEN];
+ char what[WHAT_LEN];
+ char when[WHEN_LEN];
+ char where[WHERE_LEN];
+}
+Record;
+
+void ReadSparseMatrixs (Record *, int *);
+int menu(void);
+void GenSparseMatrixs (Record *, int *);
+void SaveMatrixs (Record [], int);
+void PrintSparseMatrix (Record *, int);
+void SearchMatrix (Record *, int);
+void FastTranspose (Record *, int *);
+void MatrixMultiply (Record *, int);
+void ProofMatrixMultiply (Record *, int);
+void FastTransposePlus (Record *, int);
+void MatrixMultiplyPlus (Record *, int);
+
+void ReadSparseMatrixs (Record *, int *)
+{
+ 
+}
+int menu(void)//D0745675 廖伯瑞 
+{
+ int C;
+  printf("Please enter a choice 1-10 to quit\n");
+  printf("Print 1 to EnterRecord.\n");
+  printf("Print 2 to ViewDay.\n");
+  printf("Print 3 to ViewWeek.\n");
+  printf("Print 4 to Modify.\n");
+  printf("Print 5 to Delete.\n");
+  printf("Print 6 to Search.\n");
+  printf("Print 9 to Quit.\n");
+  scanf("%d",&C);
+  return C;
+}
+void GenSparseMatrixs (Record *AppBook, int *count)//D0746073 謝承宏 
+{
+ printf("輸入你要記錄的事.\n");
+ printf("Who:");
+ scanf("%s",&AppBook[*count].who);
+ printf("What:");
+ scanf("%s",&AppBook[*count].what);
+ printf("When:");
+ scanf("%s",&AppBook[*count].when);
+ printf("Where:");
+ scanf("%s",&AppBook[*count].where);
+ *count++;
+}
+void SaveMatrixs (Record [], int count)//D0746073 謝承宏 
+{
+ int day;
+ printf("查詢的日期(本月?號)\n");
+ scanf("%d",&day);
+ 
+}
+void PrintSparseMatrix (Record *, int)
+{
+ 
+}
+void SearchMatrix (Record *, int)
+{
+ 
+}
+void FastTranspose (Record *, int *)
+{
+ 
+}
+void MatrixMultiply (Record *, int)
+{
+ 
+}
+void ProofMatrixMultiply (Record *, int)
+{
+ 
+}
+void FastTransposePlus (Record *, int)
+{
+ 
+}
+void MatrixMultiplyPlus (Record *, int)
+{
+ 
+}
+int main (void)
+{
+ Record AppBook[MAX_REC];
+ int quit = 0, choice, count=0;
+ ReadFromFile (AppBook, &count);
+ while (! quit) {
+  choice = menu(); // get a choice
+  switch (choice) { // process according to the choice
+   case 1: ReadSparseMatrixs(AppBook, &count); break;
+   case 2: GenSparseMatrixs(AppBook, count); break;
+   case 3: SaveMatrixs(AppBook, count); break;
+   case 4: PrintSparseMatrix(AppBook, count); break;
+   case 5: SearchMatrix(AppBook, &count); break;
+   case 6: FastTranspose(AppBook, count); break;
+   case 7: MatrixMultiply(AppBook, count); break;
+   case 8: ProofMatrixMultiply(AppBook, count); break;
+   case 9: FastTransposePlus(AppBook, count); break;
+   case 10: MatrixMultiplyPlus(AppBook, count); break;
+  }
+ }
+}
